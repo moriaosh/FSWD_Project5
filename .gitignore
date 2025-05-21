@@ -18,4 +18,3 @@ Thumbs.db
 
 # מתעלם מקבצי JavaScript שנבנו אוטומטית
 *.mjs
-*.js
