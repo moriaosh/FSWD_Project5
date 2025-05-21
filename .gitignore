@@ -1,0 +1,21 @@
+# מתעלם מהתיקייה node_modules כולה
+node_modules/
+
+# מתעלם מקבצי log
+*.log
+
+# מתעלם מהbuild אם יש
+build/
+dist/
+
+# מתעלם מקבצים של מערכת הפעלה
+.DS_Store
+Thumbs.db
+
+# מתעלם מהקבצים הספציפיים שהראית (Windows command files)
+*.cmd
+*.ps1
+
+# מתעלם מקבצי JavaScript שנבנו אוטומטית
+*.mjs
+*.js
