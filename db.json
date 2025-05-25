@@ -3,7 +3,8 @@
     {
       "id": "1",
       "name": "Leanne Graham",
-      "username": "Bret",
+      "username": "bret",
+      "website": "456",
       "email": "Sincere@april.biz"
     },
     {
@@ -377,5 +378,25 @@
       "id": "20",
       "title": "voluptas rerum iure ut enim"
     }
-  ]
+  ],
+  "comments": [
+  {
+    "id": "1",
+    "postId": "1",
+    "userId": "1",
+    "body": "Great post, Bret!"
+  },
+  {
+    "id": "2",
+    "postId": "1",
+    "userId": "2",
+    "body": "Thanks for sharing!"
+  },
+  {
+    "id": "3",
+    "postId": "2",
+    "userId": "1",
+    "body": "Nice one!"
+  }
+]
 }
