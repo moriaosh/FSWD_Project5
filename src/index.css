@@ -1,196 +1,224 @@
-/* src/styles.css */
+/* Existing styles */
+   .container {
+     max-width: 800px;
+     margin: 0 auto;
+     padding: 20px;
+   }
+   .welcome {
+     font-size: 24px;
+     margin-bottom: 20px;
+   }
+   .loading, .loginPrompt {
+     text-align: center;
+     font-size: 18px;
+   }
+   .section {
+     margin: 20px 0;
+   }
+   .toggleButton, .actionButton, .formButton, .searchButton, .navButton {
+     padding: 8px 16px;
+     margin: 5px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     font-size: 14px;
+   }
+   .toggleButton {
+     background-color: #4CAF50;
+     color: white;
+   }
+   .toggleButton:hover {
+     background-color: #45a049;
+   }
+   .actionButton {
+     font-size: 12px;
+   }
+   .selectButton {
+     background-color: #2196F3;
+     color: white;
+   }
+   .selectButton:hover {
+     background-color: #1e87db;
+   }
+   .editButton {
+     background-color: #FFC107;
+     color: black;
+   }
+   .editButton:hover {
+     background-color: #e6ac00;
+   }
+   .deleteButton {
+     background-color: #F44336;
+     color: white;
+   }
+   .deleteButton:hover {
+     background-color: #da190b;
+   }
+   .formButton {
+     background-color: #4CAF50;
+     color: white;
+   }
+   .formButton:hover {
+     background-color: #45a049;
+   }
+   .updateButton {
+     background-color: #2196F3;
+     color: white;
+   }
+   .updateButton:hover {
+     background-color: #1e87db;
+   }
+   .cancelButton {
+     background-color: #F44336;
+     color: white;
+   }
+   .cancelButton:hover {
+     background-color: #da190b;
+   }
+   .searchButton {
+     background-color: #FFC107;
+     color: black;
+   }
+   .searchButton:hover {
+     background-color: #e6ac00;
+   }
+   .list {
+     list-style: none;
+     padding: 0;
+   }
+   .listItem, .postListItem, .commentListItem {
+     padding: 10px;
+     margin: 5px 0;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   .postListItem.selectedPostItem {
+     background-color: #e0f7fa;
+   }
+   .noData {
+     color: #777;
+     font-style: italic;
+   }
+   .formContainer {
+     margin: 20px 0;
+     padding: 15px;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+   }
+   .formTitle, .sectionTitle {
+     margin: 0 0 10px;
+     font-size: 18px;
+   }
+   .sectionTitle {
+     font-size: 16px;
+   }
+   .formInput, .formTextarea, .searchInput, .searchSelect {
+     display: block;
+     width: 100%;
+     max-width: 400px;
+     padding: 8px;
+     margin: 5px 0;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+   }
+   .formTextarea {
+     min-height: 100px;
+     resize: vertical;
+   }
+   .searchContainer {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     margin-bottom: 20px;
+   }
+   .searchLabel {
+     font-weight: bold;
+   }
+   .postsManagerContainer {
+     margin: 20px 0;
+   }
 
-/* General Layout */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
+   /* New styles for navigation */
+   .navigation {
+     display: flex;
+     gap: 10px;
+     margin-bottom: 20px;
+   }
+   .navButton {
+     background-color: #2196F3;
+     color: white;
+     text-decoration: none;
+   }
+   .navButton:hover {
+     background-color: #1e87db;
+   }
+   .logoutButton {
+     background-color: #F44336;
+   }
+   .logoutButton:hover {
+     background-color: #da190b;
+   }
 
-.postsManagerContainer {
-  margin-top: 30px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f5f5f5;
-}
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .pagination span {
+    font-size: 14px;
+  }
 
-/* Headings */
-.welcome {
-  color: #333;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-}
+  .returnButton {
+    background-color: #666;
+    color: white;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  .returnButton:hover {
+    background-color: #555;
+  }
 
-.sectionTitle {
-  color: #555;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-}
-
-/* Sections */
-.section {
-  margin-bottom: 30px;
-}
-
-/* Buttons */
-.toggleButton {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-
-.actionButton {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.selectButton {
-  background-color: #17a2b8;
-  color: #fff;
-}
-
-.editButton {
-  background-color: #ffc107;
-  color: #fff;
-}
-
-.deleteButton {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-.searchButton {
-  padding: 5px 15px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.formButton {
-  padding: 8px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.updateButton {
-  background-color: #28a745;
-  margin-right: 10px;
-}
-
-.cancelButton {
-  background-color: #6c757d;
-}
-
-/* Lists */
-.list {
-  list-style: none;
-  padding: 0;
-}
-
-.listItem {
-  background-color: #f9f9f9;
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.postListItem {
-  background-color: #fff;
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.selectedPostItem {
-  background-color: #e6f0fa;
-}
-
-.commentListItem {
-  background-color: #f9f9f9;
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Forms */
-.searchContainer {
-  margin-bottom: 20px;
-}
-
-.searchLabel {
-  margin-right: 10px;
-  font-weight: bold;
-}
-
-.searchSelect,
-.searchInput {
-  padding: 5px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.searchInput {
-  width: 200px;
-}
-
-.formContainer {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.formTitle {
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.formInput,
-.formTextarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.formTextarea {
-  min-height: 80px;
-}
-
-/* Text */
-.noData {
-  color: #777;
-}
-
-.loading,
-.loginPrompt {
-  text-align: center;
-  padding: 20px;
-  font-size: 18px;
-}
+  .modalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modalCloseButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #F44336;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+    }
+    .modalCloseButton:hover {
+      background: #da190b;
+    }

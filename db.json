@@ -398,5 +398,42 @@
     "userId": "1",
     "body": "Nice one!"
   }
-]
+],
+"photos": [
+      {
+        "albumId": 1,
+        "id": "1",
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "url": "https://picsum.photos/600/400?image=1",
+        "thumbnailUrl": "https://picsum.photos/150/150?image=1"
+      },
+      {
+        "albumId": 1,
+        "id": "2",
+        "title": "reprehenderit est deserunt velit ipsam",
+        "url": "https://picsum.photos/600/400?image=2",
+        "thumbnailUrl": "https://picsum.photos/150/150?image=2"
+      },
+      {
+        "albumId": 1,
+        "id": "3",
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "url": "https://picsum.photos/600/400?image=3",
+        "thumbnailUrl": "https://picsum.photos/150/150?image=3"
+      },
+      {
+        "albumId": 2,
+        "id": "4",
+        "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+        "url": "https://picsum.photos/600/400?image=4",
+        "thumbnailUrl": "https://picsum.photos/150/150?image=4"
+      },
+      {
+        "albumId": 2,
+        "id": "5",
+        "title": "natus nisi omnis corporis facere molestiae rerum in",
+        "url": "https://picsum.photos/600/400?image=5",
+        "thumbnailUrl": "https://picsum.photos/150/150?image=5"
+      }
+    ]
 }

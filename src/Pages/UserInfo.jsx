@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
+  import { Link } from 'react-router-dom';
+
 
 function UserInfo() {
   const { user } = useContext(AuthContext);
