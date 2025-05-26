@@ -22,6 +22,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
             <Route path="info" element={<UserInfo />} />
             <Route index element={<p>Select an option</p>} />
           </Route>
+          <Route path="/todos" element={<TodosManager />} />
          <Route path="/users/:userId/todos" element={<TodosManager />} />
           <Route path="/posts" element={<PostsManager />} />
           <Route path="/albums" element={<AlbumsManager />} />
