@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { Link } from 'react-router-dom';
+import '../styles/PostsManager.css';
 import axios from 'axios';
 
 function PostsManager() {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
    import { useNavigate } from 'react-router-dom';
+   import '../styles/Register.css'; 
    import axios from 'axios';
 
    function Register() {
@@ -31,38 +32,41 @@ import { useState } from 'react';
      };
 
      return (
-       <div>
-         <h2>Register</h2>
-         {error && <p style={{ color: 'red' }}>{error}</p>}
-         <form onSubmit={handleSubmit}>
-           <input
-             type="text"
-             name="username"
-             value={formData.username}
-             onChange={handleChange}
-             placeholder="Username"
-             required
-           />
-           <input
-             type="password"
-             name="password"
-             value={formData.password}
-             onChange={handleChange}
-             placeholder="Password"
-             required
-           />
-           <input
-             type="password"
-             name="passwordVerify"
-             value={formData.passwordVerify}
-             onChange={handleChange}
-             placeholder="Verify Password"
-             required
-           />
-           <button type="submit">Next</button>
-         </form>
-       </div>
-     );
+  <div className="registerContainer">
+    <h2 className="registerTitle">Register</h2>
+    {error && <p className="errorText">{error}</p>}
+    <form onSubmit={handleSubmit} className="registerForm">
+      <input
+        className="registerInput"
+        type="text"
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+        placeholder="Username"
+        required
+      />
+      <input
+        className="registerInput"
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Password"
+        required
+      />
+      <input
+        className="registerInput"
+        type="password"
+        name="passwordVerify"
+        value={formData.passwordVerify}
+        onChange={handleChange}
+        placeholder="Verify Password"
+        required
+      />
+      <button type="submit" className="registerButton">Next</button>
+    </form>
+  </div>
+);
    }
 
    export default Register;

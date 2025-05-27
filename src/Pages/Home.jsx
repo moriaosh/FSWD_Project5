@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import '../styles/Home.css'; 
 import { AuthContext } from '../Context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';

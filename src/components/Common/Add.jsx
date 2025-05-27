@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "../../styles/Add.css";
+import '../../styles/Add.css'; // ייבוא פשוט בלי modules
 
 export default function Add({ onAdd, placeholder, type, title, setTitle }) {
   const handleAddClick = () => {
@@ -10,7 +10,7 @@ export default function Add({ onAdd, placeholder, type, title, setTitle }) {
   };
 
   return (
-    <div className={styles.addContainer}>
+    <div className="addContainer">
       <input
         type="text"
         placeholder={placeholder}

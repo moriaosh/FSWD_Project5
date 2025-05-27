@@ -1,7 +1,32 @@
+/* TodoFilter.css */
 .todo-filter-container {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.todo-filter-container input {
-  margin-right: 10px;
+.todo-filter-container input[type="text"],
+.todo-filter-container select {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  transition: border-color 0.3s ease;
+  flex: 1;
+  min-width: 180px;
+}
+
+.todo-filter-container input[type="text"]:focus,
+.todo-filter-container select:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.1);
 }

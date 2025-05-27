@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import '../styles/CompleteProfile.css'; 
+
    import { useNavigate, useLocation } from 'react-router-dom';
    import axios from 'axios';
 
@@ -32,31 +34,34 @@ import { useState } from 'react';
        return <div>Please start registration from the beginning.</div>;
      }
 
-     return (
-       <div>
-         <h2>Complete Your Profile</h2>
-         {error && <p style={{ color: 'red' }}>{error}</p>}
-         <form onSubmit={handleSubmit}>
-           <input
-             type="email"
-             name="email"
-             value={formData.email}
-             onChange={handleChange}
-             placeholder="Email"
-             required
-           />
-           <input
-             type="text"
-             name="name"
-             value={formData.name}
-             onChange={handleChange}
-             placeholder="Name"
-             required
-           />
-           <button type="submit">Complete Registration</button>
-         </form>
-       </div>
-     );
+  return (
+  <div className="complete-profile-wrapper">
+    <div className="complete-profile-box">
+      <h2>Complete Your Profile</h2>
+      {error && <p className="error">{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Name"
+          required
+        />
+        <button type="submit">Complete Registration</button>
+      </form>
+    </div>
+  </div>
+);
+
    }
 
    export default CompleteProfile;

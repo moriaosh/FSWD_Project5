@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
-// שירותים API
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   getTodosByUserId,
   addTodo,
   deleteTodo,
   updateTodo
 } from '../../services/todosService';
-
-// קומפוננטות עזר
 import TodoFilter from './TodoFilter';
 import TodoList from './TodoList';
-import Add from '../Common/Add'; // 💡 קומפוננטת ההוספה
+import Add from '../Common/Add';
+import '../../styles/TodosManager.css'; // ✨ נייבא את העיצוב
 
 function TodosManager() {
   const { userId } = useParams();
+  const navigate = useNavigate(); // ✅ ייבוא פונקציית ניווט
   const [todos, setTodos] = useState([]);
   const [filterText, setFilterText] = useState('');
   const [sortBy, setSortBy] = useState('id');
-  const [newTitle, setNewTitle] = useState(''); // 💡 ניהול שדה הקלט
+  const [newTitle, setNewTitle] = useState('');
 
-  // טעינת todos לפי המשתמש מה-URL
   useEffect(() => {
     getTodosByUserId(userId)
       .then(setTodos)
       .catch((err) => console.error('Error loading todos:', err));
   }, [userId]);
 
-  // הוספת טודו חדש
   const handleAddTodo = (title) => {
     const newTodo = {
       userId: Number(userId),
@@ -48,14 +44,12 @@ function TodosManager() {
       });
   };
 
-  // מחיקת טודו
   const handleDeleteTodo = (id) => {
     deleteTodo(id).then(() =>
       setTodos((prev) => prev.filter((todo) => todo.id !== id))
     );
   };
 
-  // עדכון טודו
   const handleUpdateTodo = (updatedTodo) => {
     updateTodo(updatedTodo).then((data) =>
       setTodos((prev) =>
@@ -65,27 +59,34 @@ function TodosManager() {
   };
 
   return (
-    <div>
-      <h2>Todos for User {userId}</h2>
+    <div className="todosManagerContainer">
+      {/* 🔙 כפתור חזור */}
+      <button
+        className="backButton"
+        onClick={() => navigate('/home')}
+      >
+        ← Back to Home
+      </button>
 
-      {/* 🔍 סינון ומיון */}
-      <TodoFilter
-        filterText={filterText}
-        onFilterChange={setFilterText}
-        sortBy={sortBy}
-        onSortChange={setSortBy}
-      />
+      <h2 className="todosTitle">Todos for User {userId}</h2>
 
-      {/* ➕ הוספת טודו */}
-      <Add
-        title={newTitle}
-        setTitle={setNewTitle}
-        placeholder="Add new todo..."
-        type="todo"
-        onAdd={handleAddTodo}
-      />
+      <div className="todosControls">
+        <TodoFilter
+          filterText={filterText}
+          onFilterChange={setFilterText}
+          sortBy={sortBy}
+          onSortChange={setSortBy}
+        />
 
-      {/* 📋 רשימת Todos */}
+        <Add
+          title={newTitle}
+          setTitle={setNewTitle}
+          placeholder="Add new todo..."
+          type="todo"
+          onAdd={handleAddTodo}
+        />
+      </div>
+
       <TodoList
         todos={todos}
         filterText={filterText}

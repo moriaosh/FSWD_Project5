@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../Context/AuthContext';
+import '../styles/AlbumsManager.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 

@@ -26,11 +26,13 @@ function TodoItem({ todo, onDelete, onUpdate }) {
 
   return (
     <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-    <span className="todo-id">{todo.id}</span>
+      <span className="todo-id">{todo.id}</span>
+
       <input
         type="checkbox"
         checked={todo.completed}
         onChange={handleCheckboxChange}
+        className="todo-checkbox"
       />
 
       {isEditing ? (
@@ -43,7 +45,7 @@ function TodoItem({ todo, onDelete, onUpdate }) {
           autoFocus
         />
       ) : (
-        <span onDoubleClick={handleTitleDoubleClick}>
+        <span className="todo-title" onDoubleClick={handleTitleDoubleClick}>
           {todo.title}
         </span>
       )}

@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css'; 
 import { AuthContext } from '../Context/AuthContext';
 import axios from 'axios';
 
@@ -32,32 +33,39 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          placeholder="Username"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account?</p>
-      <button onClick={() => navigate('/register')}>Register</button>
-    </div>
-  );
+  <div className="loginContainer">
+    <h2 className="loginTitle">Login</h2>
+    {error && <p className="errorText">{error}</p>}
+
+    <form onSubmit={handleSubmit} className="loginForm">
+      <input
+        className="loginInput"
+        type="text"
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+        placeholder="Username"
+        required
+      />
+      <input
+        className="loginInput"
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Password"
+        required
+      />
+      <button type="submit" className="loginButton">Login</button>
+    </form>
+
+    <p className="registerPrompt">Don't have an account?</p>
+    <button onClick={() => navigate('/register')} className="registerButton">
+      Register
+    </button>
+  </div>
+);
+
 }
 
 export default Login;
