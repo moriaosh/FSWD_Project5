@@ -23,3 +23,11 @@
   cursor: pointer;
   font-size: 1.1rem;
 }
+
+.todo-id {
+  width: 40px;
+  color: #888;
+  font-weight: bold;
+  display: inline-block;
+}
+

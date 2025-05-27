@@ -8,7 +8,9 @@ export const getTodosByUserId = async (userId) => {
 };
 
 export const addTodo = async (todo) => {
+    console.log("this is the is from the server", todo.id)
   const response = await axios.post(API_URL, todo);
+  console.log(response.data)
   return response.data;
 };
 

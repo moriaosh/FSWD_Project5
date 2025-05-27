@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-// שירותים מופרדים
+// שירותים API
 import {
   getTodosByUserId,
   addTodo,
@@ -12,42 +12,55 @@ import {
 // קומפוננטות עזר
 import TodoFilter from './TodoFilter';
 import TodoList from './TodoList';
-import TodoAddForm from './TodoAddForm';
+import Add from '../Common/Add'; // 💡 קומפוננטת ההוספה
 
 function TodosManager() {
-  const { userId } = useParams(); // שליפת userId מה-URL
+  const { userId } = useParams();
   const [todos, setTodos] = useState([]);
   const [filterText, setFilterText] = useState('');
   const [sortBy, setSortBy] = useState('id');
+  const [newTitle, setNewTitle] = useState(''); // 💡 ניהול שדה הקלט
 
-  // טעינת todos מהשרת
+  // טעינת todos לפי המשתמש מה-URL
   useEffect(() => {
     getTodosByUserId(userId)
       .then(setTodos)
       .catch((err) => console.error('Error loading todos:', err));
   }, [userId]);
 
-  // הוספת משימה חדשה
+  // הוספת טודו חדש
   const handleAddTodo = (title) => {
     const newTodo = {
       userId: Number(userId),
       title,
       completed: false
     };
-    addTodo(newTodo).then((data) => setTodos([...todos, data]));
+
+    addTodo(newTodo)
+      .then((data) => {
+        if (!data.id || isNaN(Number(data.id))) {
+          console.warn("⚠️ Invalid ID returned from server:", data.id);
+        }
+        setTodos((prev) => [...prev, data]);
+      })
+      .catch((err) => {
+        console.error("❌ Failed to add todo:", err);
+      });
   };
 
-  // מחיקת משימה
+  // מחיקת טודו
   const handleDeleteTodo = (id) => {
     deleteTodo(id).then(() =>
-      setTodos(todos.filter((todo) => todo.id !== id))
+      setTodos((prev) => prev.filter((todo) => todo.id !== id))
     );
   };
 
-  // עדכון משימה (כותרת / מצב ביצוע)
+  // עדכון טודו
   const handleUpdateTodo = (updatedTodo) => {
     updateTodo(updatedTodo).then((data) =>
-      setTodos(todos.map((todo) => (todo.id === data.id ? data : todo)))
+      setTodos((prev) =>
+        prev.map((todo) => (todo.id === data.id ? data : todo))
+      )
     );
   };
 
@@ -55,7 +68,7 @@ function TodosManager() {
     <div>
       <h2>Todos for User {userId}</h2>
 
-      {/* סינון ומיון */}
+      {/* 🔍 סינון ומיון */}
       <TodoFilter
         filterText={filterText}
         onFilterChange={setFilterText}
@@ -63,10 +76,16 @@ function TodosManager() {
         onSortChange={setSortBy}
       />
 
-      {/* טופס הוספה */}
-      <TodoAddForm onAdd={handleAddTodo} />
+      {/* ➕ הוספת טודו */}
+      <Add
+        title={newTitle}
+        setTitle={setNewTitle}
+        placeholder="Add new todo..."
+        type="todo"
+        onAdd={handleAddTodo}
+      />
 
-      {/* רשימת todos */}
+      {/* 📋 רשימת Todos */}
       <TodoList
         todos={todos}
         filterText={filterText}

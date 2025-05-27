@@ -23,6 +23,7 @@ function TodoList({ todos, filterText, sortBy, onDelete, onUpdate }) {
   return (
     <ul>
       {sortedTodos.map(todo => (
+        
         <TodoItem
           key={todo.id}
           todo={todo}

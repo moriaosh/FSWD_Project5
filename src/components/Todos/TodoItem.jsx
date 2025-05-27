@@ -26,6 +26,7 @@ function TodoItem({ todo, onDelete, onUpdate }) {
 
   return (
     <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+    <span className="todo-id">{todo.id}</span>
       <input
         type="checkbox"
         checked={todo.completed}
